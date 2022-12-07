@@ -1,0 +1,48 @@
+header {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+#input-output-container {
+    display: flex;
+    border: 1px black solid;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+#input {
+    width: 45%;
+}
+
+#output {
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#input-value {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#lista {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    display: none;
+}
+
+li {
+    padding: 10px;
+    max-width: 90%;
+    max-height: 90%;
+}
