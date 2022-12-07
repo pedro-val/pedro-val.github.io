@@ -1,54 +1,55 @@
 //calculo do profit para cada player
 
+const button = document.getElementById('button');
 button.addEventListener('click', () => {
     const arrayDoAnalyzer = document.getElementById('input-value').value.split(/\r?\n?\t|\r|\n|\t/g);
-const button = document.getElementById('button');
+
 const lista = document.getElementById('lista');
 const listaLi = document.getElementsByTagName('li');
-const lootTotal = parseInt(arrayDoAnalyzer[3].match(/-?\d+/g).map(Number).join(''));
-const gastoTotal = parseInt(arrayDoAnalyzer[4].match(/-?\d+/g).map(Number).join(''));
-const profitTotal = parseInt(arrayDoAnalyzer[5].match(/-?\d+/g).map(Number).join(''));
+const lootTotal = parseInt(arrayDoAnalyzer[3].match(/-?\d/g).map(Number).join(''));
+const gastoTotal = parseInt(arrayDoAnalyzer[4].match(/-?\d/g).map(Number).join(''));
+const profitTotal = parseInt(arrayDoAnalyzer[5].match(/-?\d/g).map(Number).join(''));
 
 const pt = [
     {
         nome: arrayDoAnalyzer[6].replace('(Leader))', ''),
-        loot: parseInt(arrayDoAnalyzer[7].match(/-?\d+/g).map(Number).join('')),
-        suplies: parseInt(arrayDoAnalyzer[8].match(/-?\d+/g).map(Number).join('')),
-        balance: parseInt(arrayDoAnalyzer[9].match(/-?\d+/g).map(Number).join('')),
-        dano: parseInt(arrayDoAnalyzer[10].match(/-?\d+/g).map(Number).join('')),
-        heal: parseInt(arrayDoAnalyzer[11].match(/-?\d+/g).map(Number).join(''))
+        loot: parseInt(arrayDoAnalyzer[7].match(/-?\d/g).map(Number).join('')),
+        suplies: parseInt(arrayDoAnalyzer[8].match(/-?\d/g).map(Number).join('')),
+        balance: parseInt(arrayDoAnalyzer[9].match(/-?\d/g).map(Number).join('')),
+        dano: parseInt(arrayDoAnalyzer[10].match(/-?\d/g).map(Number).join('')),
+        heal: parseInt(arrayDoAnalyzer[11].match(/-?\d/g).map(Number).join(''))
     },
     {
         nome: arrayDoAnalyzer[12].replace('(Leader))', ''),
-        loot: parseInt(arrayDoAnalyzer[13].match(/-?\d+/g).map(Number).join('')),
-        suplies: parseInt(arrayDoAnalyzer[14].match(/-?\d+/g).map(Number).join('')),
-        balance: parseInt(arrayDoAnalyzer[15].match(/-?\d+/g).map(Number).join('')),
-        dano: parseInt(arrayDoAnalyzer[16].match(/-?\d+/g).map(Number).join('')),
-        heal: parseInt(arrayDoAnalyzer[17].match(/-?\d+/g).map(Number).join(''))
+        loot: parseInt(arrayDoAnalyzer[13].match(/-?\d/g).map(Number).join('')),
+        suplies: parseInt(arrayDoAnalyzer[14].match(/-?\d/g).map(Number).join('')),
+        balance: parseInt(arrayDoAnalyzer[15].match(/-?\d/g).map(Number).join('')),
+        dano: parseInt(arrayDoAnalyzer[16].match(/-?\d/g).map(Number).join('')),
+        heal: parseInt(arrayDoAnalyzer[17].match(/-?\d/g).map(Number).join(''))
     },
     {
         nome: arrayDoAnalyzer[18].replace('(Leader))', ''),
-        loot: parseInt(arrayDoAnalyzer[19].match(/-?\d+/g).map(Number).join('')),
-        suplies: parseInt(arrayDoAnalyzer[20].match(/-?\d+/g).map(Number).join('')),
-        balance: parseInt(arrayDoAnalyzer[21].match(/-?\d+/g).map(Number).join('')),
-        dano: parseInt(arrayDoAnalyzer[22].match(/-?\d+/g).map(Number).join('')),
-        heal: parseInt(arrayDoAnalyzer[23].match(/-?\d+/g).map(Number).join(''))
+        loot: parseInt(arrayDoAnalyzer[19].match(/-?\d/g).map(Number).join('')),
+        suplies: parseInt(arrayDoAnalyzer[20].match(/-?\d/g).map(Number).join('')),
+        balance: parseInt(arrayDoAnalyzer[21].match(/-?\d/g).map(Number).join('')),
+        dano: parseInt(arrayDoAnalyzer[22].match(/-?\d/g).map(Number).join('')),
+        heal: parseInt(arrayDoAnalyzer[23].match(/-?\d/g).map(Number).join(''))
     },
     {
         nome: arrayDoAnalyzer[24].replace('(Leader))', ''),
-        loot: parseInt(arrayDoAnalyzer[25].match(/-?\d+/g).map(Number).join('')),
-        suplies: parseInt(arrayDoAnalyzer[26].match(/-?\d+/g).map(Number).join('')),
-        balance: parseInt(arrayDoAnalyzer[27].match(/-?\d+/g).map(Number).join('')),
-        dano: parseInt(arrayDoAnalyzer[28].match(/-?\d+/g).map(Number).join('')),
-        heal: parseInt(arrayDoAnalyzer[29].match(/-?\d+/g).map(Number).join(''))
+        loot: parseInt(arrayDoAnalyzer[25].match(/-?\d/g).map(Number).join('')),
+        suplies: parseInt(arrayDoAnalyzer[26].match(/-?\d/g).map(Number).join('')),
+        balance: parseInt(arrayDoAnalyzer[27].match(/-?\d/g).map(Number).join('')),
+        dano: parseInt(arrayDoAnalyzer[28].match(/-?\d/g).map(Number).join('')),
+        heal: parseInt(arrayDoAnalyzer[29].match(/-?\d/g).map(Number).join(''))
     },
     {
         nome: arrayDoAnalyzer[30].replace('(Leader))', ''),
-        loot: parseInt(arrayDoAnalyzer[31].match(/-?\d+/g).map(Number).join('')),
-        suplies: parseInt(arrayDoAnalyzer[32].match(/-?\d+/g).map(Number).join('')),
-        balance: parseInt(arrayDoAnalyzer[33].match(/-?\d+/g).map(Number).join('')),
-        dano: parseInt(arrayDoAnalyzer[34].match(/-?\d+/g).map(Number).join('')),
-        heal: parseInt(arrayDoAnalyzer[35].match(/-?\d+/g).map(Number).join(''))
+        loot: parseInt(arrayDoAnalyzer[31].match(/-?\d/g).map(Number).join('')),
+        suplies: parseInt(arrayDoAnalyzer[32].match(/-?\d/g).map(Number).join('')),
+        balance: parseInt(arrayDoAnalyzer[33].match(/-?\d/g).map(Number).join('')),
+        dano: parseInt(arrayDoAnalyzer[34].match(/-?\d/g).map(Number).join('')),
+        heal: parseInt(arrayDoAnalyzer[35].match(/-?\d/g).map(Number).join(''))
     },
 ];
     const maiorDano = () => pt.reduce(((acc, cur) => cur.dano > acc.dano ? cur : acc));
@@ -83,10 +84,10 @@ const pt = [
     listaLi[3].innerText = `O mais minguado, que todos tem pena, que falta ML, que bateu menos nas criaturas foi ${menorDano().nome}, com um daninho total de ${menorDano().dano}.`
     listaLi[4].innerText = `Os negativados dessa hunt foram: ${nomesNegativos()}`
     listaLi[5].innerText = `O jogador ${a.nome}, deve receber ${granap1}`;
-    listaLi[6].innerText = `O jogador ${e.nome}, deve receber ${granap5}`;
-    listaLi[7].innerText = `O jogador ${c.nome}, deve receber ${granap3}`;
-    listaLi[8].innerText = `O jogador ${d.nome}, deve receber ${granap4}`;
+    listaLi[6].innerText = `O jogador ${c.nome}, deve receber ${granap3}`;
+    listaLi[7].innerText = `O jogador ${d.nome}, deve receber ${granap4}`;
+    listaLi[8].innerText = `O jogador ${e.nome}, deve receber ${granap5}`;
     listaLi[9].innerText = `Hetai, paga geral ai! se fodeu! kkkk`;
     lista.style.display = 'flex';
-
+    console.log(d.suplies)
 });
