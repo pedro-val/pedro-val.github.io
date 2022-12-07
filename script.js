@@ -72,11 +72,11 @@ const pt = [
     
     const profitIndividual = profitTotal / 5;
     const [a,b,c,d,e] = pt;
-    const granap1 = parseInt(profitIndividual + a.suplies - a.loot);
-    const granap2 = parseInt(profitIndividual + b.suplies - b.loot);
-    const granap3 = parseInt(profitIndividual + c.suplies - c.loot);
-    const granap4 = parseInt(profitIndividual + d.suplies - d.loot);
-    const granap5 = parseInt(profitIndividual + e.suplies - e.loot);
+    const granap1 = parseInt(profitIndividual - a.balance);
+    const granap2 = parseInt(profitIndividual - b.balance);
+    const granap3 = parseInt(profitIndividual - c.balance);
+    const granap4 = parseInt(profitIndividual - d.balance);
+    const granap5 = parseInt(profitIndividual - e.balance);
 
     listaLi[0].innerText = `O monstro da pt, destruidor de criaturas foi ${maiorDano().nome}, com ${maiorDano().dano} de damage total!`
     listaLi[1].innerText = `O Deus que mais salvou o heróico bonequinho que se enfiou no meio das criaturas foi ${maiorHealing().nome}, com uma cura total de ${maiorHealing().heal}!`
