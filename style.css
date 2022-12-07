@@ -2,6 +2,13 @@ header {
     display: flex;
     justify-content: center;
     font-size: xx-large;
+    align-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 300px;
+    padding: 0 30px;
 }
 
 #input-output-container {
@@ -45,4 +52,11 @@ li {
     padding: 10px;
     max-width: 90%;
     max-height: 90%;
+}
+
+footer {
+    margin: 20px auto;
+    max-width: 40%;
+    text-align: center;
+    
 }
